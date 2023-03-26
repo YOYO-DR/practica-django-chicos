@@ -3,6 +3,7 @@ from django.forms import ModelForm
 from .models import *
 
 #creo la clase para mi modelo y lo heredo de ModelForm
+
 class FormInventario(ModelForm):
   #inicializo el metodo init asi
   def __init__(self,*args, **kwargs):

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="container-fluid d-flex justify-content-center align-items-center w-50" style="height:70vh">
+    <form method="post" class="border p-2 w-50" style="border-radius:5px;">
+      {% csrf_token %}
+      {% for field in form.visible_fields %}
+      <div class="col py-1 h5">
+        <label for="{{field.label_attrs.for}}" class="{{field.label_attrs.class}}">{{field.label}}</label>
+        {{field}}
+      </div>
+      {% endfor %}
+      <button class="btn btn-primary" type="submit">Guardar</button>
+    </form>
+</div>
+{% endblock contenido %}

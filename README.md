@@ -1,1 +1,1 @@
-# practica-django-chicos
+# Practica de Django - Grupo

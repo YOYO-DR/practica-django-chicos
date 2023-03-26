@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
 {% block contenido %}
 <div class="container-fluid d-flex justify-content-center align-items-center w-50" style="height:70vh">
+  {% comment %} creo un form y el metodo debe ser post {% endcomment %}
     <form method="post" class="border p-2 w-50" style="border-radius:5px;">
+      {% comment %} el token siempre tiene que estar,es un metodo de seguridad de django {% endcomment %}
       {% csrf_token %}
+      {% comment %} recorro los fields o inputs de mi modelo la cual le cree un formulario {% endcomment %}
       {% for field in form.visible_fields %}
       <div class="col py-1 h5">
+        {% comment %} en el for del label le pongo el valor que le puse en el for del formulario
+        en la clase tambien le pongo los valores que le agregue
+        y en el contenido le pongo el nombre del input el cual es el verbose_name del modelo
+        {% endcomment %}
         <label for="{{field.label_attrs.for}}" class="{{field.label_attrs.class}}">{{field.label}}</label>
+        {% comment %} luego pongo el input el cual es el valor recorrido {% endcomment %}
         {{field}}
       </div>
       {% endfor %}
+      {% comment %} pongo el boton para enviar el cual es un tipo submit {% endcomment %}
       <button class="btn btn-primary" type="submit">Guardar</button>
     </form>
 </div>

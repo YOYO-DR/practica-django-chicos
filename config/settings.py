@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+#import os para agregar las rutas del proyecto si lo necesito
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #agrego la app que cree
     'app'
 ]
 
@@ -55,6 +57,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        #agrego la carpeta template donde tendre mis plantillas, ya que las carpetas templates dentro de las apps, django ya las interpreta
         'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -74,6 +77,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+#agrego la config de la base de datos que voy a utilizar, en este caso, postgres, la cual tengo que instalar la lib de psycopg2 en el entorno
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -120,7 +124,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+#agrego la ruta de mi carpeta de archivos estaticos, la cual esta al inicio del proyecto (al mismo nivel de la carpeta de configuración)
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
 STATIC_URL = 'static/'
 
 # Default primary key field type

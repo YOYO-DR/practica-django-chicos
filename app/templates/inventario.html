@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<table style="border: 1px solid black;">
+  <thead style="border: 1px solid black;">
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Categoria</th>
+      <th>Cantidad</th>
+      <th>Precio Unidad</th>
+    </tr>
+  </thead>
+  <tbody style="border: 1px solid black;">
+{% for producto in productos %}
+<tr style="border: 1px solid red;">
+  <td>{{producto.id}}</td>
+  <td>{{producto.nombre}}</td>
+  <td>{{producto.categoria.nombre}}</td>
+  <td>{{producto.cantidad}}</td>
+  <td>{{producto.precioU}}</td>
+</tr>
+{% endfor %}
+  </tbody>
+
+</table>
+{% endblock contenido %}
